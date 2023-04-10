@@ -1,0 +1,35 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+    <nav class="navbar">
+    <ul class="menu">
+    <a href="{% url 'index' %}"><img src="/static/hh.png" alt="hh" class="images"></a>
+    <li class="nav-link">
+        <p class="welcome-text">Добро пожаловать на HeadHunter</p>
+    </li>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            <div class="form-row mt-3">
+                                <div class="col">
+                                    {% bootstrap_button button_type="submit" content='Log In' extra_classes="btn-primary btn-block" %}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

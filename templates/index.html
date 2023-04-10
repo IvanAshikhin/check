@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+<nav class="navbar">
+    <ul class="menu">
+        <a href=""><img src="../static/hh.png" alt="hh" class="images"></a>
+        <li class="nav-link">
+            <p class="welcome-text">Добро пожаловать на HeadHunter</p>
+        </li>
+        <li class="nav-link">
+            <a href="{% url 'login' %}">Войти</a>
+        </li>
+        <li class="nav-link">
+            <a href="{% url 'register' %}">Зарегестрироваться</a>
+        </li>
+    </ul>
+</nav>
+<div class="image-block">
+    <h1 class="absolute block-h1-text"><strong>Найди работу мечты</strong></h1>
+    <div class="img-wrap"><img src="../static/business.jpg" alt="" class="business"></div>
+    <form action="">
+        <input type="text" class="absolute input" placeholder="Профессия, должность или компания">
+        <button class="absolute button" type="submit">Найти работу</button>
+        <a href="" class="absolute block-a">Я ищу сотрудника</a>
+    </form>
+    <div class="absolute row">
+        <p>0 <br>Резюме</p>
+        <p>0 <br>Вакансий</p>
+        <p>0 <br>Компаний</p>
+    </div>
+</div>
+<div class="vacancy">
+    <div class="dashboard-item-title">
+
+    </div>
+
+</div>
+</body>
+</html>
