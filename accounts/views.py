@@ -19,24 +19,24 @@ class LoginView(TemplateView):
         form = self.form(request.POST)
         if not form.is_valid():
             messages.error(request, "Некорректные данные")
-            return redirect('index_page')
+            return redirect('index')
         email = form.cleaned_data.get('email')
         password = form.cleaned_data.get('password')
         user = authenticate(request, email=email, password=password)
         if not user:
             messages.warning(request, "Пользователь не найден")
-            return redirect('index_page')
+            return redirect('index')
         login(request, user)
         messages.success(request, 'Добро пожаловать')
         next = request.GET.get('next')
         if next:
             return redirect(next)
-        return redirect('main')
+        return redirect('index')
 
 
 def logout_view(request):
     logout(request)
-    return redirect('index_page')
+    return redirect('index')
 
 
 class RegisterView(CreateView):
